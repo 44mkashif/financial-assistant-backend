@@ -25,7 +25,6 @@ class App(Flask):
         self.register_blueprint(auth_bp)
         self.register_blueprint(chatbot_bp)
         self.register_blueprint(langchain_bp)
-        
 
 app = App(__name__)
 CORS(app)
