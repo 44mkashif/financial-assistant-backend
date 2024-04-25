@@ -1,0 +1,1 @@
+MIGRATION_DIR = "database/migrations"
