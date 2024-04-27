@@ -4,11 +4,9 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Install necessary PostgreSQL libraries for building psycopg2
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    gcc \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libpq-dev gcc \
+    poppler-utils tesseract-ocr tesseract-ocr-tur \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY . /app
 

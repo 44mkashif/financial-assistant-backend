@@ -10,7 +10,7 @@ class AuthRoutes:
             current_app.auth_instance = Auth()
         return current_app.auth_instance
 
-    @auth_bp.route("/api/auth", methods=["GET"])
+    @auth_bp.route("hello", methods=["GET"])
     def hello():
         auth = AuthRoutes.get_auth_instance()
         response = auth.hello()

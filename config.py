@@ -6,3 +6,5 @@ class Config:
         "DATABASE_URL",
         "postgresql://postgres:postgres@postgres:5432/postgres",
     )
+    VERYFI_API_KEY = os.environ.get("VERYFI_API_KEY")
+    VERYFI_CLIENT_ID = os.environ.get("VERYFI_CLIENT_ID")

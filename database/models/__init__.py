@@ -1,2 +1,2 @@
 from .user import User
-from .w2_forms import W2Form
+from .w2_form import W2Form
