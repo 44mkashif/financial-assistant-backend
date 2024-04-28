@@ -1,9 +1,10 @@
 from database import db
 from database.models.employee import Employee
 
+
 class EmployeeRepository:
     def upsert_employee(self, employee_data, flush=False):
-        employee = Employee.query.filter_by(ssn=employee_data['ssn']).first()
+        employee = Employee.query.filter_by(ssn=employee_data["ssn"]).first()
         if not employee:
             employee = Employee(**employee_data)
             db.session.add(employee)

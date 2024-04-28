@@ -19,9 +19,7 @@ def handle_api_errors(f):
             print(f"An error occurred: {type(e).__name__} - {str(e)}")
             traceback.print_exc()
             return (
-                jsonify(
-                    {"error": "An error occurred while processing the request"}
-                ),
+                jsonify({"error": "An error occurred while processing the request"}),
                 500,
             )
 

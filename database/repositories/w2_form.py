@@ -1,6 +1,7 @@
 from database import db
 from database.models.w2_form import W2Form
 
+
 class W2FormRepository:
     def add_w2_form(self, w2_form_data, flush=False):
         w2_form = W2Form(**w2_form_data)
@@ -30,4 +31,8 @@ class W2FormRepository:
         return w2_form
 
     def fetch_w2_data_for_user(self, user_id):
-        return W2Form.query.filter_by(user_id=user_id).order_by(W2Form.created_at.desc()).all()
+        return (
+            W2Form.query.filter_by(user_id=user_id)
+            .order_by(W2Form.created_at.desc())
+            .all()
+        )

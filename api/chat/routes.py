@@ -14,7 +14,7 @@ class ChatRoutes:
     def question():
         chat = ChatRoutes.get_chat_instance()
         return chat.question()
-    
+
     @chat_bp.route("/messages/<gpt_thread_id>", methods=["GET"])
     def get_messages(gpt_thread_id):
         chat = ChatRoutes.get_chat_instance()

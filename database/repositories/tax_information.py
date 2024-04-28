@@ -1,6 +1,7 @@
 from database import db
 from database.models.tax_information import TaxInformation
 
+
 class TaxInformationRepository:
     def add_tax_information(self, tax_info_data, flush=False):
         tax_information = TaxInformation(**tax_info_data)

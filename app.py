@@ -24,9 +24,10 @@ class App(Flask):
 
     def register_blueprints(self):
         self.register_blueprint(llm_bp)
-        self.register_blueprint(auth_bp, url_prefix='/api/v1/auth')
-        self.register_blueprint(chat_bp, url_prefix='/api/v1/chat')
-        self.register_blueprint(w2_form_bp, url_prefix='/api/v1/w2-form')
+        self.register_blueprint(auth_bp, url_prefix="/api/v1/auth")
+        self.register_blueprint(chat_bp, url_prefix="/api/v1/chat")
+        self.register_blueprint(w2_form_bp, url_prefix="/api/v1/w2-form")
+
 
 app = App(__name__)
 CORS(app)

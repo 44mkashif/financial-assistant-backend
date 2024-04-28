@@ -1,9 +1,10 @@
 from database import db
 from database.models.employer import Employer
 
+
 class EmployerRepository:
     def upsert_employer(self, employer_data, flush=False):
-        employer = Employer.query.filter_by(ein=employer_data['ein']).first()
+        employer = Employer.query.filter_by(ein=employer_data["ein"]).first()
         if not employer:
             employer = Employer(**employer_data)
             db.session.add(employer)
