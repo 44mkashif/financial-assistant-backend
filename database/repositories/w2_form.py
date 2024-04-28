@@ -28,3 +28,6 @@ class W2FormRepository:
             db.session.delete(w2_form)
             db.session.commit()
         return w2_form
+
+    def fetch_w2_data_for_user(self, user_id):
+        return W2Form.query.filter_by(user_id=user_id).order_by(W2Form.created_at.desc()).all()

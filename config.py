@@ -8,3 +8,4 @@ class Config:
     )
     VERYFI_API_KEY = os.environ.get("VERYFI_API_KEY")
     VERYFI_CLIENT_ID = os.environ.get("VERYFI_CLIENT_ID")
+    MODEL_NAME = os.environ.get("MODEL_NAME", "gpt-3.5-turbo")

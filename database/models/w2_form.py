@@ -12,6 +12,8 @@ class W2Form(db.Model):
     employee_id = db.Column(db.Integer, ForeignKey("Employee.id"), nullable=False)
     file_name = db.Column(db.String(255), nullable=False)
     file_path = db.Column(db.String(255), nullable=False)
+    gpt_assistant_id = db.Column(db.String(255), nullable=True)
+    gpt_thread_id = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     tax_information = db.relationship("TaxInformation", backref="w2_form", uselist=False)

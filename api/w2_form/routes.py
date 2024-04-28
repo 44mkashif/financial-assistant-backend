@@ -15,3 +15,7 @@ class W2FormRoutes:
         w2_form = W2FormRoutes.get_w2_form_instance()
         return w2_form.upload()
 
+    @w2_form_bp.route("/list/<int:id>", methods=["GET"])
+    def fetch_w2_data_for_user(id):
+        w2_form = W2FormRoutes.get_w2_form_instance()
+        return w2_form.fetch_w2_data_for_user(id)
