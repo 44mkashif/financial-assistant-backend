@@ -1,7 +1,7 @@
 """alter table w2 form
 
 Revision ID: 06713bcb7a53
-Revises: 486a7666bce6
+Revises: 0827ca2ab2fb
 Create Date: 2024-04-28 21:49:55.088455
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '06713bcb7a53'
-down_revision = '486a7666bce6'
+down_revision = '0827ca2ab2fb'
 branch_labels = None
 depends_on = None
 

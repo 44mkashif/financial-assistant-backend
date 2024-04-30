@@ -6,6 +6,7 @@ This application is designed to automate the processing and querying of W-2 form
 
 - **Document Parsing**: Users can upload W-2 forms, which are then processed to extract data using Veryfi API.
 - **Interactive Querying**: Leverage OpenAI's Assistants API to enable users to ask questions and get insights about the parsed W-2 data.
+- **User Authentication**: Implements a secure authentication system to manage user access and protect sensitive information.
 - **Docker Integration**: Fully containerized application setup for easy development and deployment.
 - **Secure Data Handling**: Ensures that all personal information, especially Social Security Numbers, are handled securely with partial masking techniques.
 

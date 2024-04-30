@@ -2,7 +2,6 @@ from pydantic import BaseModel
 
 
 class AskQuestionSchema(BaseModel):
-    user_id: int
     question: str
     w2_form_id: int
     gpt_thread_id: str

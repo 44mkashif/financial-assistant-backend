@@ -1,11 +1,13 @@
 from flask import Flask
 from flask_cors import CORS
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 
 from config import Config
 from database import db
 from database.models import *
 from constants import MIGRATION_DIR
+from api.utils.jwt import check_if_token_revoked
 
 from llm import llm_bp
 from api.auth import auth_bp
@@ -31,6 +33,9 @@ class App(Flask):
 
 app = App(__name__)
 CORS(app)
+
+jwt = JWTManager(app)
+jwt.token_in_blocklist_loader(check_if_token_revoked)
 
 app.register_blueprints()
 

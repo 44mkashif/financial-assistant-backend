@@ -7,6 +7,7 @@ from flask import request, jsonify
 from werkzeug.utils import secure_filename
 from sqlalchemy.exc import SQLAlchemyError
 from werkzeug.exceptions import BadRequest
+from flask_jwt_extended import get_jwt_identity
 
 from config import Config
 from llm.assistant import Assistant
@@ -42,10 +43,7 @@ class W2Form:
             if not allowed_file(file.filename):
                 raise BadRequest("Uploaded file type is not allowed!")
 
-            user_id = request.form.get("user_id")
-            if not user_id:
-                raise BadRequest("user_id is required!")
-
+            user_id = get_jwt_identity()
             user = self.user_repo.get_user_by_id(user_id)
             if user is None:
                 raise BadRequest("User not found!")
@@ -153,7 +151,8 @@ class W2Form:
         return w2_form.id
 
     @handle_api_errors
-    def fetch_w2_data_for_user(self, user_id):
+    def fetch_w2_data_for_user(self):
+        user_id = get_jwt_identity()
         w2_forms = self.w2_form_repo.fetch_w2_data_for_user(user_id)
         return (
             jsonify(

@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from datetime import datetime, timezone
 from werkzeug.exceptions import BadRequest
+from flask_jwt_extended import get_jwt_identity
 
 from llm.assistant import Assistant
 from api.chat.validations import AskQuestionSchema
@@ -18,7 +19,8 @@ class Chat:
     def question(self):
         data = AskQuestionSchema(**request.json)
 
-        user = self.user_repo.get_user_by_id(data.user_id)
+        user_id = get_jwt_identity()
+        user = self.user_repo.get_user_by_id(user_id)
         if user is None:
             raise BadRequest("User not found!")
 
